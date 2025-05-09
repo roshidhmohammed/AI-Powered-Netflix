@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Header from "./Header";
-import { MAIN_PAGE_BACKGROUND_IMAGE } from "../utils/constants";
+import { MAIN_PAGE_BACKGROUND_IMAGE, USER_AVATAR } from "../utils/constants";
 import { validationData } from "../utils/validation";
 import { auth } from "../utils/firebase";
 import {  createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile  } from "firebase/auth";
@@ -42,7 +42,7 @@ const Login = () => {
           const user = userCredentials.user;
           updateProfile(user, {
             displayName:fullName.current.value,
-            photoURL:"https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+            photoURL:USER_AVATAR
           })
           .then(()=>{
             const {uid, email, displayName, photoURL} = auth.currentUser
