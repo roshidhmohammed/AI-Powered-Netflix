@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import VideoBackground from "./VideoBackGround";
 import VideoTitle from "./VideoTitle";
@@ -8,13 +7,15 @@ const MainContainer = () => {
 
   if (movies === null) return;
 
-  const randomNumberLessThanMovieLength = Math.ceil(Math.random() * movies?.length-1);
+  const randomNumberLessThanMovieLength = Math.ceil(
+    Math.random() * movies?.length - 1
+  );
   const mainMovie = movies[randomNumberLessThanMovieLength];
 
   const { title, overview } = mainMovie;
 
   return (
-    <div className="  relative">
+    <div className="">
       <VideoBackground movieId={mainMovie?.id} />
       <VideoTitle title={title} overview={overview} />
     </div>

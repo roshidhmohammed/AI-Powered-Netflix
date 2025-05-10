@@ -3,23 +3,27 @@ import Header from "./Header";
 import { MAIN_PAGE_BACKGROUND_IMAGE, USER_AVATAR } from "../utils/constants";
 import { validationData } from "../utils/validation";
 import { auth } from "../utils/firebase";
-import {  createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile  } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../slices/userSlice";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const dispatch =useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [isSignInForm, setIsSignInForm] = useState(true);
   const fullName = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
   const [errorMessage, setErrorMessage] = useState("");
 
-  useEffect(()=>{
-    setErrorMessage("")
-  },[isSignInForm])
+  useEffect(() => {
+    setErrorMessage("");
+  }, [isSignInForm]);
   const handleForm = (e) => {
     e.preventDefault();
     const validationResult = validationData(
@@ -41,29 +45,46 @@ const Login = () => {
         .then((userCredentials) => {
           const user = userCredentials.user;
           updateProfile(user, {
-            displayName:fullName.current.value,
-            photoURL:USER_AVATAR
+            displayName: fullName.current.value,
+            photoURL: USER_AVATAR,
           })
-          .then(()=>{
-            const {uid, email, displayName, photoURL} = auth.currentUser
-            dispatch(addUser({uid:uid, email:email, displayName:displayName, photoURL:photoURL}))
-            navigate("/browse")
-          })
-          .catch((error)=>{
-            setErrorMessage(error.message)
-          })
+            .then(() => {
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+              navigate("/browse");
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
         })
         .catch(() => {
           setErrorMessage("Something went wrong. Please try again later!");
         });
     } else {
-      signInWithEmailAndPassword(auth, email.current.value,
-        password.current.value)
-        .then((userCredentials)=>{
-          const user = userCredentials.user
-          const {uid, email, displayName, photoURL} = user
-            dispatch(addUser({uid:uid, email:email, displayName:displayName, photoURL:photoURL}))
-          navigate("/browse")
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredentials) => {
+          const user = userCredentials.user;
+          const { uid, email, displayName, photoURL } = user;
+          dispatch(
+            addUser({
+              uid: uid,
+              email: email,
+              displayName: displayName,
+              photoURL: photoURL,
+            })
+          );
+          navigate("/browse");
         })
         .catch(() => {
           setErrorMessage("Please enter the valid email and password");
