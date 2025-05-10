@@ -22,7 +22,14 @@ const Header = () => {
     const unSubscibe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName, photoURL } = user;
-        dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL:photoURL }));
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
         navigate("/browse");
       } else {
         dispatch(removeUser);
@@ -33,7 +40,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="absolute  p-5 bg-gradient-to-b from-gray-950 w-full z-50 lg:mb-0  flex justify-between pr-10">
+    <div className=" fixed p-5 bg-gradient-to-b from-gray-950 w-full z-50 lg:mb-0  flex justify-between pr-10">
       <img
         src={HEADER_LOGO}
         alt=""
