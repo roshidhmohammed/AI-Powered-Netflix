@@ -16,3 +16,9 @@ export const options = {
   };
   
 export const IMAGE_CDN_URL="https://image.tmdb.org/t/p/w200/"
+
+export const supportedLanguages =[
+  {identifier:"en", name:"English"},
+  {identifier:"hn", name:"Hindi"},
+  {identifier:"mal", name:"Malayalam"}
+]

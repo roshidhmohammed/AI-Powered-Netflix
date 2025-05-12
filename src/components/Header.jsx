@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { HEADER_LOGO } from "../utils/constants";
+import { HEADER_LOGO, supportedLanguages } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { addUser, removeUser } from "../slices/userSlice";
+import { toggleGptSearchView } from "../slices/gptSlice";
+import { changeLanguage } from "../slices/configSlice";
 
 const Header = () => {
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userDetails = useSelector((state) => state.user);
@@ -39,8 +42,16 @@ const Header = () => {
     return () => unSubscibe();
   }, []);
 
+  const toggleGptSearch = () => {
+    dispatch(toggleGptSearchView());
+  };
+
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
+
   return (
-    <div className=" fixed p-5 bg-gradient-to-b from-gray-950 w-full z-50 lg:mb-0  flex justify-between pr-10">
+    <div className=" fixed px-5 py-3 bg-gradient-to-b from-gray-950 w-full z-50 lg:mb-0  flex justify-between pr-10">
       <img
         src={HEADER_LOGO}
         alt=""
@@ -48,7 +59,27 @@ const Header = () => {
       />
 
       {userDetails && (
-        <div>
+        <div className=" flex  gap-5 items-center">
+          {showGptSearch && (
+            <div className="m-5">
+              <select
+                className="text-white  focus:outline-none  bg-gray-800 font-bold p-2 rounded-lg "
+                onChange={handleLanguageChange}
+              >
+                {supportedLanguages?.map((language) => (
+                  <option value={language?.identifier}>{language?.name}</option>
+                ))}
+              </select>
+            </div>
+          )}
+          <div>
+            <button
+              className=" p-2 px-5  bg-fuchsia-800 hover:bg-fuchsia-700 hover:cursor-pointer font-bold text-white rounded-lg m-5"
+              onClick={toggleGptSearch}
+            >
+              {showGptSearch ? "Home" : "GPT Search"}
+            </button>
+          </div>
           <img
             src={userDetails?.photoURL}
             alt=""
@@ -57,7 +88,7 @@ const Header = () => {
           />
 
           {showProfileModal && (
-            <div className=" bg-black  z-50 absolute top-16 right-5 rounded-lg text-white p-5 shadow-2xl shadow-gray-400">
+            <div className=" bg-black  z-50 absolute top-16 right-5 rounded-lg text-white p-5 shadow-md shadow-gray-900">
               <div>
                 <h1 className="mb-2">
                   <span className=" mr-2 font-bold  text-gray-400">Name:</span>

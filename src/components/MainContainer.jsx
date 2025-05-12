@@ -12,12 +12,12 @@ const MainContainer = () => {
   );
   const mainMovie = movies[randomNumberLessThanMovieLength];
 
-  const { title, overview } = mainMovie;
+  const { title } = mainMovie;
 
   return (
-    <div className="">
+    <div className=" ">
       <VideoBackground movieId={mainMovie?.id} />
-      <VideoTitle title={title} overview={overview} />
+      <VideoTitle title={title} />
     </div>
   );
 };
