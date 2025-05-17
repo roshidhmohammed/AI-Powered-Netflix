@@ -38,7 +38,7 @@ const Header = () => {
         );
         navigate("/browse");
       } else {
-        dispatch(removeUser);
+        dispatch(removeUser());
         navigate("/");
       }
     });
