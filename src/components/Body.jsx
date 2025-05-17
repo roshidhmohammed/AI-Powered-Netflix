@@ -7,7 +7,7 @@ const Body = () => {
   const appRouter = createBrowserRouter([
     { path: "/", element: <Login /> },
     { path: "browse", element: <Browse /> },
-     { path: "watch-movie/:movieId", element: <WatchMovie /> },
+    { path: "watch-movie/:movieId", element: <WatchMovie /> },
   ]);
 
   return (

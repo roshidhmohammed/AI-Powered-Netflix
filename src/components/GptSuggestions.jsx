@@ -23,7 +23,7 @@ const GptSuggestions = () => {
       ) : (
         <div className="mt-10  px-10 w-full grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  grid-cols-1 gap-10  pb-10">
           {movieResults?.map((movie) => (
-            <Link  key={movie.id} to={`/watch-movie/${movie?.id}`}>
+            <Link key={movie.id} to={`/watch-movie/${movie?.id}`}>
               <MovieCard posterPath={movie?.poster_path} isGptComp={true} />
             </Link>
           ))}

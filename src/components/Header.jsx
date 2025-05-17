@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { HEADER_LOGO, supportedLanguages } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged, signOut } from "firebase/auth";
@@ -67,7 +67,12 @@ const Header = () => {
                 onChange={handleLanguageChange}
               >
                 {supportedLanguages?.map((language) => (
-                  <option key={language?.identifier} value={language?.identifier}>{language?.name}</option>
+                  <option
+                    key={language?.identifier}
+                    value={language?.identifier}
+                  >
+                    {language?.name}
+                  </option>
                 ))}
               </select>
             </div>
@@ -100,7 +105,7 @@ const Header = () => {
                 </h1>
                 <div className=" flex justify-between ">
                   <button
-                    onClick={()=> setShowProfileModal(false)}
+                    onClick={() => setShowProfileModal(false)}
                     className=" bg-slate-700 hover:bg-slate-600 text-white hover:cursor-pointer px-2 py-1 mt-5   rounded-lg"
                   >
                     Close

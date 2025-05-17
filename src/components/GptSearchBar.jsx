@@ -58,7 +58,10 @@ const GptSearchBar = () => {
   };
   return (
     <div>
-      <form className=" mx-5 md:mx-0 flex justify-center gap-3 " onSubmit={handleGptSearch}>
+      <form
+        className=" mx-5 md:mx-0 flex justify-center gap-3 "
+        onSubmit={handleGptSearch}
+      >
         <input
           type="text"
           placeholder={language[currentlanguage].gptSearchPlaceHolder}
