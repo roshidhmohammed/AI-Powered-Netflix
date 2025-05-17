@@ -5,7 +5,7 @@ const MovieList = ({ title, movies }) => {
   if (!movies) return;
 
   return (
-    <div className=" pl-16 pt-5">
+    <div className="pl-2 md:pl-16 pt-5">
       <div>
         <h1 className=" text-white text-xl pb-3 pt-7 font-bold font-sans tracking-wider">
           {title}

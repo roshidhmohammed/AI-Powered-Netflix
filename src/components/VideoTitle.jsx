@@ -3,7 +3,7 @@ import { LuInfo } from "react-icons/lu";
 
 const VideoTitle = ({ title }) => {
   return (
-    <div className=" absolute top-76  pl-12 text-white z-50 ">
+    <div className=" absolute top-76 sm:top-40 lg:top-76  pl-12 text-white z-50 ">
       <h1 className="font-bold text-lg md:text-2xl lg:text-6xl mb-5 bg-clip-text  w-3/3">
         {title}
       </h1>
@@ -12,7 +12,7 @@ const VideoTitle = ({ title }) => {
           <FaPlay />
           Play
         </button>
-        <button className="flex bg-gray-100/30 hover:bg-gray-300/40 text-lg items-center   gap-3  hover:cursor-pointer rounded-lg px-5 py-3">
+        <button className="hidden  md:flex bg-gray-100/30 hover:bg-gray-300/40 text-lg items-center   gap-3  hover:cursor-pointer rounded-lg px-5 py-3">
           <LuInfo className="" size={22} />
           More Info
         </button>

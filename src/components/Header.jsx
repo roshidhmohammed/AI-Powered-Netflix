@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { HEADER_LOGO, supportedLanguages } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged, signOut } from "firebase/auth";
@@ -51,7 +51,7 @@ const Header = () => {
   };
 
   return (
-    <div className=" fixed px-5 py-3 bg-gradient-to-b from-gray-950 w-full z-50 lg:mb-0  flex justify-between pr-10">
+    <div className=" fixed px-5 py-3 bg-gradient-to-b from-gray-950 w-full z-50 lg:mb-0  flex flex-col items-center md:flex-row md:justify-between md:pr-10">
       <img
         src={HEADER_LOGO}
         alt=""
@@ -59,9 +59,9 @@ const Header = () => {
       />
 
       {userDetails && (
-        <div className=" flex  gap-5 items-center">
+        <div className=" flex  md:gap-5 items-center">
           {showGptSearch && (
-            <div className="m-5">
+            <div className="md:m-5">
               <select
                 className="text-white  focus:outline-none  bg-gray-800 font-bold p-2 rounded-lg "
                 onChange={handleLanguageChange}
@@ -74,7 +74,7 @@ const Header = () => {
           )}
           <div>
             <button
-              className=" p-2 px-5  bg-fuchsia-800 hover:bg-fuchsia-700 hover:cursor-pointer font-bold text-white rounded-lg m-5"
+              className=" p-2 md:px-5  bg-fuchsia-800 hover:bg-fuchsia-700 hover:cursor-pointer font-bold text-white rounded-lg m-5"
               onClick={toggleGptSearch}
             >
               {showGptSearch ? "Home" : "GPT Search"}
@@ -98,7 +98,13 @@ const Header = () => {
                   <span className=" mr-2 font-bold  text-gray-400">Email:</span>
                   {userDetails?.email}
                 </h1>
-                <div className=" flex justify-end ">
+                <div className=" flex justify-between ">
+                  <button
+                    onClick={()=> setShowProfileModal(false)}
+                    className=" bg-slate-700 hover:bg-slate-600 text-white hover:cursor-pointer px-2 py-1 mt-5   rounded-lg"
+                  >
+                    Close
+                  </button>
                   <button
                     onClick={handleSignOut}
                     className=" bg-red-700 hover:bg-red-600 hover:cursor-pointer px-2 py-1 mt-5   rounded-lg"

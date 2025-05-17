@@ -1,4 +1,3 @@
-import React from "react";
 import MovieList from "./MovieList";
 import { useSelector } from "react-redux";
 
@@ -7,7 +6,7 @@ const SecondaryContainer = () => {
 
   return (
     <div className=" bg-[#141414] pb-20 ">
-      <div className=" -mt-[330px] mr-2  relative">
+      <div className="-mt-[330px] md:-mt-[200px] lg:-mt-[330px] mr-2  relative">
         <MovieList title="Now Playing" movies={movies?.nowPlayingMovies} />
         <MovieList title="Popular" movies={movies?.popularMovies} />
         <MovieList title="Top Rated" movies={movies?.topRatedMovies} />
