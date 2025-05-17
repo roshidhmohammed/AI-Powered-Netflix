@@ -1,13 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import useMovieTrailer from "../hooks/useMovieTrailer";
+import useWatchMovie from "../hooks/useWatchMovie";
 
-const ViewMovie = () => {
-  const { id } = useParams();
-  const trailerVideo = useSelector((store) => store.movies?.trailerVideo);
-
-  const movieId = id;
-  useMovieTrailer(movieId);
+const WatchMovie = () => {
+  const { movieId } = useParams();
+  useWatchMovie(movieId);
+  const watchMovie = useSelector((store) => store.movies?.watchMovie);
 
   return (
     <div className=" ">
@@ -16,7 +14,7 @@ const ViewMovie = () => {
           className="   aspect-video w-full h-[100vh] "
           src={
             "https://www.youtube.com/embed/" +
-            trailerVideo?.key +
+            watchMovie?.key +
             "?autoplay=1&rel=0&controls=1&showinfo=0"
           }
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -27,4 +25,4 @@ const ViewMovie = () => {
   );
 };
 
-export default ViewMovie;
+export default WatchMovie;

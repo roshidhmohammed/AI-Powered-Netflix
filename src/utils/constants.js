@@ -6,6 +6,7 @@ export const TMDB_NOW_PLAYING_MOVIES_URL = "https://api.themoviedb.org/3/movie/n
 export const TMDB_POPULAR_MOVIES_URL = "https://api.themoviedb.org/3/movie/popular?&page=1";
 export const TMDB_TOP_RATED_MOVIES_URL = "https://api.themoviedb.org/3/movie/top_rated?&page=1";
 export const TMDB_UPCOMING_MOVIES_URL = "https://api.themoviedb.org/3/movie/upcoming?&page=1";
+export const TMDB_TRAILER_URL="https://api.themoviedb.org/3/movie/"
 export const options = {
     method: "GET",
     headers: {

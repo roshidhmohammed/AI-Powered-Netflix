@@ -1,14 +1,13 @@
-import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./Login";
 import Browse from "./Browse";
-import ViewMovie from "./viewMovie";
+import WatchMovie from "./WatchMovie";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
     { path: "/", element: <Login /> },
     { path: "browse", element: <Browse /> },
-     { path: "watch-movie/:id", element: <ViewMovie /> },
+     { path: "watch-movie/:movieId", element: <WatchMovie /> },
   ]);
 
   return (

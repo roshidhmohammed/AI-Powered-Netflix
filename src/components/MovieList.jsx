@@ -3,7 +3,7 @@ import MovieCard from "./MovieCard";
 
 const MovieList = ({ title, movies }) => {
   if (!movies) return;
-  console.log(movies)
+
   return (
     <div className=" pl-16 pt-5">
       <div>
@@ -12,9 +12,8 @@ const MovieList = ({ title, movies }) => {
         </h1>
         <div className=" flex gap-3 overflow-x-scroll w-full">
           {movies?.map((movie) => (
-            <Link  key={movie.id} to={`/watch-movie/${movie?.id}`}>
-            
-            <MovieCard posterPath={movie.poster_path} />
+            <Link key={movie.id} to={"/watch-movie/" + movie.id}>
+              <MovieCard posterPath={movie.poster_path} />
             </Link>
           ))}
         </div>

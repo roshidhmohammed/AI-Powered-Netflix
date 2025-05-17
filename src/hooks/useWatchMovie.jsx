@@ -1,25 +1,23 @@
 import { useEffect } from "react";
 import { options, TMDB_TRAILER_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
-import { addTrailerVideo } from "../slices/moviesSlice";
+import { addWatchMovie } from "../slices/moviesSlice";
 
-const useMovieTrailer = (movieId) => {
+const useWatchMovie = (movieId) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getMovieVideos();
-  }, []);
+    getWatchMovieDetails();
+  });
 
-  if (!movieId) return;
-
-  const getMovieVideos = async () => {
+  const getWatchMovieDetails = async () => {
     const data = await fetch(TMDB_TRAILER_URL + movieId + "/videos", options);
     const json = await data.json();
-    const trailer = await json?.results?.find(
+    const movie = await json?.results?.find(
       (video) => video?.type === "Trailer"
     );
-    dispatch(addTrailerVideo(trailer));
+    dispatch(addWatchMovie(movie));
   };
 };
 
-export default useMovieTrailer;
+export default useWatchMovie;
