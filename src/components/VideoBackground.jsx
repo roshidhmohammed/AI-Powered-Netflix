@@ -16,7 +16,7 @@ const VideoBackground = ({ movieId }) => {
           "?autoplay=1&mute=1&showinfo=0&controls=0"
         }
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
+        referrerPolicy="strict-origin-when-cross-origin"
       ></iframe>
     </div>
   );
