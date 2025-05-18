@@ -40,8 +40,8 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#advanced-concepts">Advanced Concepts</a></li>
-    <li><a href="#features">Features</a></li>
+    <li><a href="#Key-Features-and-Technical-Highlights">Key Features & Technical Highlights</a></li>
+    <li><a href="#Functionality-of-the-application">Interactive Functionality of the Application</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -113,7 +113,7 @@ _Below are the instructions to run the complete project._
    ```
 4. Create a .env file at the root of your project.
 
-5. Enter all the credentials in `.env` like below
+5. Fill out all the below credentials in `.env` like below
    ```js
    VITE_TMDB_ACCESS_TOKEN=
    VITE_FIREBASE_API_KEY=
@@ -125,7 +125,6 @@ _Below are the instructions to run the complete project._
    VITE_FIREBASE_MEASUREMENT_ID=
    VITE_OPEN_AI_KEY=
    ```
-
 6. Run command below to start the project
    ```sh
      npm run dev
@@ -135,28 +134,31 @@ _Below are the instructions to run the complete project._
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Advanced Concepts -->
-## advanced-concepts
+## Key-Features-and-Technical-Highlights
 
 
-- [x] Integrated search functionality using the debounce technique to provide better UX and reduce the number of API calls.
-- [x] Fetched live video chat messages using API polling to get the live data from the server.
-- [x] Developed a responsive design to be compatible with multiple screen sizes.
-- [x] Created maximum reusable components for the application's maintainability.
-- [x] Implemented Redux for global state management and state to be used across multiple components.
+- [x] Implemented secure authentication using email and password with the Firebase Auth package.
+- [x] Applied strong authorization across all pages of the application except the Login and SignUp components to ensure security.
+- [x] This app fetches movie data by category (like popular movies, now playing movies, and top rated movies) from the TMDB database using the custom hooks for improved maintainabilty, readability, and to follow DRY principle.
+- [x] All categorized movie data is stored in seperate states within the redux store for use across multiple components as needed.
+- [x] When a user clicks on a specific movie, they are redirected to a "Watch Movie" page where the movie is displayed using a Youtube iframe with enhanced user controls.
+- [x] Users can perform AI-powered movie recommendation searches with custom input using  OPENAI, and the app retrieves suggested movie details from the TMDB database.
+- [x] Built reusable components to enhance maintainability and reduce redundancy.
+- [x] Secured all credentials like API keys, firebase account details in the .env file.
+- [x] Deployed the application on thefree tier of the Vercel platform.
+- [x] Designed a responsive UI compatible with multiple screen sizes.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-<!-- features -->
-## features
+<!-- Functionality-of-the-application -->
+## Functionality-of-the-application
 
-- [x] View all videos
-- [x] Watch detailed video and view the content details
-- [x] Show suggested videos
-- [x] Display comments on each video watch page
-- [x] Live Videos
-    - [ ] Watch Detailed Live Videos with live chat
+- [x] Users can watch top categorized movies on the home page, after successfully signing in.
+- [x] Users can ask the AI model for the movie suggestions using the customized keywords (eg: top Indian romantic movies, recently released horror movies, etc.)
+- [X] When a user clicks on a specific movie, they are redirected to the "Watch Movie" page in full screen mode with the flexible controls of the movie.
 
 
 
