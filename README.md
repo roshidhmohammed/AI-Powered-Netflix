@@ -51,7 +51,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Youtube-Frontend-App][product-screenshot]](https://youtube-app-drab.vercel.app/)
+[![AI-Powered-Netflix][product-screenshot]](https://ai-powered-netflix-a527.vercel.app/)
 
 This project includes a stunning UI of the Netflix application with advanced CSS properties, effective AI utilisation to increase the user experience and high maintainability and readability.
 
