@@ -16,7 +16,7 @@
   <p align="center">
     Covered advanced Frontend/React concepts with stunning UI
     <br />
-    <a align="center" href="https://github.com/roshidhmohammed/youtube_app?tab=readme-ov-file"><strong>Explore the docs »</strong></a>
+    <a align="center" href="https://github.com/roshidhmohammed/AI-Powered-Netflix?tab=readme-ov-file#about-the-project"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://ai-powered-netflix-a527.vercel.app/">View Demo</a>
